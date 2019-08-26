@@ -1,44 +1,44 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
-use App\Traits\PresenterBuildable;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use PresenterBuildable;
-
-    use Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name',
         'email',
-        'password',
+        'name',
+        'furigana',
+        'phone_namber',
+        'birthday',
+        'male',
+        'address',
+        'career_status',
+        'school_status',
+        'school_name',
+        'fuculty',
+        'graduate_plan',
+        
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    public function socialProvider()
+    {
+        return $this->belongsTo(\App\Models\SocialProvider::class, 'id', 'user_id');
+    }
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function review()
+    {
+        return $this->hasMany(\App\Models\Review::class, 'user_id', 'id');
+    }
+
+    public function like()
+    {
+        return $this->hasMany(\App\Models\Like::class, 'user_id', 'id');
+    }
 }

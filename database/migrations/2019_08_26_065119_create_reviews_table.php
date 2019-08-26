@@ -14,7 +14,10 @@ class CreateReviewsTable extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id'); 
+            
+            $table->integer('user_id')->nullable();
+            $table->integer('company_id')->nullable();
 
             $table->longtext('company_culture')->nullable();
             $table->longtext('gap')->nullable();
@@ -27,10 +30,6 @@ class CreateReviewsTable extends Migration
             $table->integer('growup_environment')->nullable();
 
             $table->string('open_flag');
-
-            $table->integer('user_id')->nullable();
-            $table->integer('company_id')->nullable();
-
 
             $table->timestamps();
         });

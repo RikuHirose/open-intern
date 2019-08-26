@@ -19,16 +19,16 @@ class CreateCompaniesTable extends Migration
             $table->string('mission')->nullable();
             $table->string('desired_person')->nullable();
             $table->string('name')->nullable();
-            $table->string('desc')->nullable();
+            $table->longtext('desc')->nullable();
             $table->string('address')->nullable();
 
             $table->integer('member_count')->nullable();
             
             $table->string('established_at')->nullable();
             $table->string('founder')->nullable();
-            $table->string('hp_url');
-            $table->string('fb_url');
-            $table->string('tw_url');
+            $table->string('hp_url')->nullable();
+            $table->string('fb_url')->nullable();
+            $table->string('tw_url')->nullable();
             $table->string('pickup_flag')->nullable();
 
             $table->timestamps();
