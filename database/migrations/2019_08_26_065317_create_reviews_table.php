@@ -16,8 +16,8 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id'); 
             
-            $table->integer('user_id')->nullable();
-            $table->integer('company_id')->nullable();
+            $table->bigInteger('user_id')->unique()->unsigned()->index()->nullable();
+            $table->bigInteger('company_id')->unique()->unsigned()->index();
 
             $table->longtext('company_culture')->nullable();
             $table->longtext('gap')->nullable();
@@ -30,6 +30,9 @@ class CreateReviewsTable extends Migration
             $table->integer('growup_environment')->nullable();
 
             $table->string('open_flag');
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
 
             $table->timestamps();
         });
