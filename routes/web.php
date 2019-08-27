@@ -17,4 +17,10 @@
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::group(['as' => 'user.', 'namespace' => 'User'], function() {
+
+  Route::resource('companies', 'CompanyController', ['only' => ['index', 'show']]);
+
+});
