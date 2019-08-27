@@ -2,9 +2,9 @@
 namespace App\Services\Production;
 
 use App\Models\Company;
-use App\Services\CompanyServiceInterface;
+use App\Services\CompanyIndustryService;
 
-class CompanyService implements CompanyServiceInterface
+class CompanyIndustryService implements CompanyIndustryServiceInterface
 {
 
 }

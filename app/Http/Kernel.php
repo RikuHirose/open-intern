@@ -41,6 +41,11 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             'bindings',
         ],
+
+        'api.v1' => [
+            'throttle:60,1',
+            'bindings',
+        ],
     ];
 
     /**

@@ -23,13 +23,14 @@ class CreateCompaniesTable extends Migration
             $table->string('address')->nullable();
 
             $table->integer('member_count')->nullable();
-            
+
             $table->string('established_at')->nullable();
             $table->string('founder')->nullable();
             $table->string('hp_url')->nullable();
             $table->string('fb_url')->nullable();
             $table->string('tw_url')->nullable();
-            $table->string('pickup_flag')->nullable();
+
+            $table->boolean('pickup_flag')->nullable();
 
             $table->timestamps();
         });

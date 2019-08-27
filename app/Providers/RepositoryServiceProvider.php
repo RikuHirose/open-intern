@@ -49,10 +49,16 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\Eloquent\SocialProviderRepository::class
         );
 
-        // ConpanyIndustry
+        // CompanyIndustry
         $this->app->bind(
-            \App\Repositories\ConpanyIndustryRepositoryInterface::class,
+            \App\Repositories\CompanyIndustryRepositoryInterface::class,
             \App\Repositories\Eloquent\CompanyIndustryRepository::class
+        );
+
+        // History
+        $this->app->bind(
+            \App\Repositories\HistoryRepositoryInterface::class,
+            \App\Repositories\Eloquent\HistoryRepository::class
         );
 
     }

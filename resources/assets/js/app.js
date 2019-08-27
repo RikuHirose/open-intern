@@ -20,8 +20,8 @@ import Vue from 'vue'
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 // Vue.prototype.$axios = window.axios
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+Vue.component('store-local-strage', require('./components/company/store_local_strage.vue'));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
